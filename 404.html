@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - João Pedro Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #f0f0f0; /* Cor do texto mais clara */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .profile-photo {
+        max-width: 100%; /* Define uma largura máxima para manter o formato original */
+        height: auto; /* Mantém a proporção original da imagem */
+        object-fit: cover; /* Ajusta a imagem ao tamanho do contêiner */
+        box-shadow: 0 0 30px rgba(168, 230, 207, 0.6);
+        transition: transform 0.3s ease;
+    }
+        .profile-photo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.2em;
+            color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        /* Seção "Conheça Meu Trabalho" */
+        .work-section {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .work-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #a8e6cf; /* Verde pastel */
+            font-weight: bold;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .project {
+            width: 250px;
+            height: 250px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #ccc;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        /* Etapas do Projeto */
+        .steps-section {
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+            margin-bottom: 100px;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .steps-section h2 {
+            font-size: 2.8em;
+            color: #a8e6cf; /* Verde pastel */
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .step {
+            background-color: #222;
+            padding: 40px;
+            border-radius: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .step-icon {
+            font-size: 3em;
+            color: #a8e6cf; /* Verde pastel */
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover .step-icon {
+            transform: rotate(20deg);
+        }
+
+        .step h3 {
+            font-size: 1.7em;
+            color: #a8e6cf; /* Verde pastel */
+            margin-bottom: 20px;
+        }
+
+        .step p {
+            font-size: 1.1em;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Seção CTA (Call to Action) */
+        .cta-section {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            padding: 50px;
+            background: linear-gradient(45deg, #a8e6cf, #a2d9ff); /* Gradiente de verde pastel a azul pastel */
+            border-radius: 15px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-text {
+            flex: 1;
+            text-align: left;
+            color: #fff;
+        }
+
+        .cta-text p {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 1.3em;
+            color: #fff;
+            background: #ff80ab; /* Rosa pastel */
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 128, 171, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 128, 171, 0.7);
+        }
+
+        /* Seção "Por que me contratar" */
+        .why-section {
+            width: 100%;
+            max-width: 600px;
+            color: #fff;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .why-section h2 {
+            font-size: 2.2em;
+            color: #a8e6cf; /* Verde pastel */
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .benefits {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .benefits ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .benefits li::before {
+            content: "\f00c";
+            font-family: 'Font Awesome 5 Free';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #a8e6cf; /* Verde pastel */
+            font-size: 1.5em;
+        }
+
+        /* Rodapé */
+        footer {
+            width: 100%;
+            background-color: #222;
+            color: #ccc;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #a8e6cf;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cta-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .why-section {
+                width: 100%;
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .step {
+                width: 80%;
+                padding: 20px;
+            }
+
+            .step-icon {
+                font-size: 2.5em;
+            }
+
+            .step h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <section class="header">
+        <!-- Aqui está a imagem do João Pedro -->
+        <img src="https://images4.alphacoders.com/115/1155004.jpg" alt="Foto João Pedro" class="profile-photo">
+        <h1>João Pedro Design</h1>
+    </section>
+
+    <!-- Conheça Meu Trabalho -->
+    <section class="work-section">
+        <h2>Conheça Meu Trabalho</h2>
+        <div class="projects">
+            <div class="project">Projeto 1</div>
+            <div class="project">Projeto 2</div>
+            <div class="project">Projeto 3</div>
+            <div class="project">Projeto 4</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-text">
+            <p>Gostou do meu trabalho? Vamos conversar sobre o seu projeto!</p>
+        </div>
+        <button class="cta-button">Solicite seu Orçamento</button>
+    </section>
+
+    <!-- Por que me contratar -->
+    <section class="why-section">
+        <h2>Por que me contratar?</h2>
+        <div class="benefits">
+            <ul>
+                <li>Design personalizado, adaptado ao seu negócio.</li>
+                <li>Experiência e comprometimento com o resultado.</li>
+                <li>Entrega rápida e com alta qualidade.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Etapas do Projeto -->
+    <section class="steps-section">
+        <h2>Como Será a Confecção do Seu Projeto?</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fa fa-pencil-alt"></i>
+                </div>
+                <h3>1. Briefing Inicial</h3>
+                <p>Vamos conversar sobre suas necessidades, ideias e expectativas para o projeto. A partir disso, começamos a planejar as soluções ideais para o seu negócio.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fa fa-laptop-code"></i>
+                </div>
+                <h3>2. Criação e Desenvolvimento</h3>
+                <p>Aqui, começamos a criar o conceito visual, utilizando as melhores ferramentas e práticas de design para trazer à vida a sua visão.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <h3>3. Feedback e Ajustes</h3>
+                <p>Após a entrega inicial, você poderá fornecer feedback, e ajustaremos o design até atingir o resultado desejado.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fa fa-check-circle"></i>
+                </div>
+                <h3>4. Entrega Final</h3>
+                <p>Com o projeto aprovado, entregamos todos os arquivos finais prontos para o uso, em diversos formatos, para que você possa aproveitar ao máximo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 João Pedro Design. Todos os direitos reservados.</p>
+        <a href="#">LinkedIn</a> | <a href="#">Behance</a> | <a href="#">GitHub</a>
+    </footer>
+    
+</body>
+</html>
